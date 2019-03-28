@@ -35,4 +35,13 @@ public class HelloControllerControllerTest {
                 .andExpect(content().string("hello,dinner"));
         logger.info("测试Hello控制器的hello().....通过");
     }
+
+    @Test
+    public void testHello2() throws Exception {
+        logger.info("测试Hello控制器的hello2().....开始");
+        mockMvc.perform(MockMvcRequestBuilders.get("/hello2").accept(MediaType.ALL))
+                .andExpect(status().isOk())
+                .andExpect(content().string("hello2,dinner"));
+        logger.info("测试Hello控制器的hello2().....通过");
+    }
 }
