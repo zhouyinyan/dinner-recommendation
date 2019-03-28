@@ -3,9 +3,8 @@ jdk: openjdk8
 script: "mvn cobertura:cobertura"
 
 before_install:
-- touch id_rsa & chmod 777 id_rsa
-- openssl aes-256-cbc -K $encrypted_09bb2ac36cc3_key -iv $encrypted_09bb2ac36cc3_iv -in id_rsa.enc -out id_rsa -d
-- mkdir ~\/.ssh & mv -f id_rsa ~\/.ssh & chmod 600 ~\/.ssh/id_rsa
+- mkdir ~/.ssh & chmod 755 ~/.ssh & cd ~ & touch ./.ssh/id_rsa & chmod 777 ./.ssh/id_rsa
+- openssl aes-256-cbc -K $encrypted_09bb2ac36cc3_key -iv $encrypted_09bb2ac36cc3_iv -in id_rsa.enc -out ~/.ssh/id_rsa -d
 
 addons:
   ssh_known_hosts: 139.9.247.199
