@@ -1,4 +1,4 @@
-package com.zyy.app.dinner.integration.mob;
+package com.zyy.app.dinner.integration.mob.model;
 
 import java.io.Serializable;
 
@@ -7,16 +7,19 @@ import java.io.Serializable;
  */
 public class CategoryInfo implements Serializable{
 
-//    {
-//        "ctgId": "0010001001",
-//            "name": "全部菜谱"
-//    }
-
     private String ctgId;
 
     private String name;
 
     private String parentId;
+
+    public CategoryInfo() {
+    }
+
+    public CategoryInfo(String ctgId, String name) {
+        this.ctgId = ctgId;
+        this.name = name;
+    }
 
     public String getCtgId() {
         return ctgId;

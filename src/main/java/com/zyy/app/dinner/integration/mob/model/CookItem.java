@@ -1,4 +1,4 @@
-package com.zyy.app.dinner.integration.mob;
+package com.zyy.app.dinner.integration.mob.model;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

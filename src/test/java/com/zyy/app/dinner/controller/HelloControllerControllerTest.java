@@ -1,6 +1,5 @@
 package com.zyy.app.dinner.controller;
 
-import com.zyy.app.dinner.DinnerApplicationTests;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -18,9 +17,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * Created by zhouyinyan on 2019/3/27.
  */
-@RunWith(SpringRunner.class)
 @WebMvcTest(HelloController.class)
-public class HelloControllerControllerTest {
+public class HelloControllerControllerTest extends BaseMvcTest{
 
     protected static final Logger logger = LoggerFactory.getLogger(HelloControllerControllerTest.class);
 

@@ -1,4 +1,4 @@
-package com.zyy.app.dinner.integration.mob;
+package com.zyy.app.dinner.integration.mob.model;
 
 /**
  * 分类类型
@@ -21,6 +21,15 @@ public enum CategoryType {
     CategoryType(String ctgId, String name) {
         this.ctgId = ctgId;
         this.name = name;
+    }
+
+    public static CategoryType getByCtgId(String ctgId){
+        for (CategoryType type : CategoryType.values()) {
+            if(type.getCtgId().equals(ctgId)){
+                return type;
+            }
+        }
+        return null;
     }
 
     public String getCtgId() {

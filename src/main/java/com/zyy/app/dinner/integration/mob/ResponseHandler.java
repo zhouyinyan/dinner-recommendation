@@ -1,4 +1,4 @@
-package com.zyy.app.dinner.integration;
+package com.zyy.app.dinner.integration.mob;
 
 import okhttp3.Response;
 

@@ -1,11 +1,11 @@
-package com.zyy.app.dinner.integration.mob;
+package com.zyy.app.dinner.integration.mob.model;
 
 import java.io.Serializable;
 
 /**
  * Created by zhouyinyan on 2019/3/29.
  */
-public class BaseResponse<R> implements Serializable {
+public class Response<R> implements Serializable {
 
     private String msg;
 
@@ -36,4 +36,14 @@ public class BaseResponse<R> implements Serializable {
     public void setResult(R result) {
         this.result = result;
     }
+
+
+    public static class CategoryInfoResponse extends Response<CategoryInfoTree> {
+
+    }
+
+    public static class CookItemResponse extends Response<CookItem> {
+    }
+
+    public static class PagedCookItemResponse extends Response<PagedResult<CookItem>>{}
 }
