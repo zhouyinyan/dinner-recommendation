@@ -13,6 +13,10 @@ public class DinnerApplicationTests {
 
     protected static final Logger logger = LoggerFactory.getLogger(DinnerApplicationTests.class);
 
+    static {
+    	System.setProperty("logback.env","dev");
+	}
+
 	@Test
 	public void contextLoads() {
         logger.info("应用启动正常....");
