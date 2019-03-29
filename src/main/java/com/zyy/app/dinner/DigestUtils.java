@@ -27,7 +27,8 @@ public abstract class DigestUtils {
     }
 
     public static String sha1DigestAsHex(byte[] bytes) {
-        return digestAsHexString(SHA1_ALGORITHM_NAME, bytes);
+        byte[] digest = digest(SHA1_ALGORITHM_NAME, bytes);
+        return encodeHexForWeixin(digest);
     }
 
     public static StringBuilder appendMd5DigestAsHex(byte[] bytes, StringBuilder builder) {
@@ -72,6 +73,23 @@ public abstract class DigestUtils {
         }
 
         return chars;
+    }
+
+    private static String encodeHexForWeixin(byte[] bytes) {
+        int len = bytes.length;
+        StringBuilder buf = new StringBuilder(len * 2);
+        // 把密文转换成十六进制的字符串形式
+        for (int j = 0; j < len; j++) {
+            buf.append(HEX_CHARS[(bytes[j] >> 4) & 0x0f]);
+            buf.append(HEX_CHARS[bytes[j] & 0x0f]);
+        }
+        return buf.toString();
+    }
+
+    public static void main(String[] args) {
+        String s = "sdfalsfjasljfdlasf";
+        System.out.println(encodeHexForWeixin(s.getBytes()));
+        System.out.println(new String(encodeHex(s.getBytes())));
     }
 
 }
