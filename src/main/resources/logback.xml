@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
-    <property name="logger.root" value="/data/logs"/>
+    <property name="logger.root" value="~/logs"/>
     <property name="app.name" value="dinner"/>
     <property name="MY_PATTERN"
               value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%thread] %C{100}.java:%L - %msg%n"/>
