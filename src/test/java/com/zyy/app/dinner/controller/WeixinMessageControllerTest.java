@@ -1,41 +1,34 @@
 package com.zyy.app.dinner.controller;
 
 import com.zyy.app.dinner.DigestUtils;
-import org.apache.catalina.connector.CoyoteInputStream;
-import org.apache.catalina.connector.InputBuffer;
 import org.junit.Test;
-import org.mockito.Mock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.mock.web.DelegatingServletInputStream;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.weixin4j.model.message.output.TextOutputMessage;
 import org.weixin4j.spi.IMessageHandler;
 
-import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.StringJoiner;
 
-import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
  * Created by zhouyinyan on 2019/3/27.
  */
-@WebMvcTest(WeixinController.class)
-public class WeixinControllerTest extends BaseMvcTest{
+@WebMvcTest(WeixinMessageController.class)
+public class WeixinMessageControllerTest extends BaseMvcTest{
 
-    protected static final Logger logger = LoggerFactory.getLogger(WeixinControllerTest.class);
+    protected static final Logger logger = LoggerFactory.getLogger(WeixinMessageControllerTest.class);
 
     @Autowired
     private MockMvc mockMvc;
@@ -55,7 +48,7 @@ public class WeixinControllerTest extends BaseMvcTest{
                         .param("timestamp", timestamp)
                         .param("nonce", nonce)
                         .param("echostr", echostr)
-                        .param("signature", sign(timestamp, nonce, WeixinController.token))
+                        .param("signature", sign(timestamp, nonce, WeixinMessageController.token))
                         .accept(MediaType.ALL);
 
         mockMvc.perform(requestBuilder)

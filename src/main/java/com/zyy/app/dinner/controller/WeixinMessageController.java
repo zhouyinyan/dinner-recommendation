@@ -21,10 +21,10 @@ import java.io.IOException;
  */
 @RestController
 @RequestMapping("/wx")
-public class WeixinController {
+public class WeixinMessageController {
 
     public static final String token = "zhouyinyan_ai_xsp";
-    public static final Logger LOGGER = LoggerFactory.getLogger(WeixinController.class);
+    public static final Logger LOGGER = LoggerFactory.getLogger(WeixinMessageController.class);
 
     @Autowired
     private IMessageHandler messageHandler;
